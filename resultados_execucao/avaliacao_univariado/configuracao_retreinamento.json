@@ -1,6 +1,6 @@
 {
   "experimento": "univariado",
-  "data_execucao": "2026-11-09T00:39:29.301487",
+  "data_execucao": "2026-11-10T01:04:36.789271",
   "target": "Credit",
   "features": [
     "Credit"
@@ -30,16 +30,5 @@
   "batch_size": 32,
   "learning_rate": 0.001,
   "loss": "mse",
-  "random_state_base": 42,
-  "proveniencia_execucao": {
-    "arquivo_manifesto": "resultados_execucao/proveniencia_execucao.json",
-    "python": "3.14.4 (kernel metadata)",
-    "tensorflow_versao": "não registrada na execução original",
-    "keras_versao": "não registrada na execução original",
-    "dispositivo": "não registrado na execução original",
-    "data_sha256": "78d2362d1d8e133697e22550c027994fbb6839934cc6d7259008b835ddf33559",
-    "notebook_source_sha256": "b61a7c1435cda0c66f19140fb04602a211e788f40f47c14b4ac8a9ffff19752f",
-    "seed_base": 42,
-    "repeticoes_por_arquitetura": 1
-  }
+  "random_state_base": 42
 }
