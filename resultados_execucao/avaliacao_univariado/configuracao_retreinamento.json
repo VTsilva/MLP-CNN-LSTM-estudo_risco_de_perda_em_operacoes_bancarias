@@ -1,0 +1,45 @@
+{
+  "experimento": "univariado",
+  "data_execucao": "2026-11-09T00:39:29.301487",
+  "target": "Credit",
+  "features": [
+    "Credit"
+  ],
+  "lookback_semanas": 52,
+  "horizonte_passos": 1,
+  "epocas_selecionadas": {
+    "mlp_1": 100,
+    "mlp_2": 99,
+    "cnn": 99,
+    "lstm": 100,
+    "stacked_lstm": 100,
+    "bilstm": 100,
+    "cnn_lstm": 100,
+    "convlstm": 92
+  },
+  "justificativas_epoca": {
+    "mlp_1": "O menor MSE de validação ocorre na época 100. A curva de validação ainda apresenta queda gradual, embora o erro de treino seja oscilatório. É a melhor época observada, mas o diagnóstico alcançou o limite de 100 épocas.",
+    "mlp_2": "O menor MSE de validação ocorre na época 99, seguido de pequena piora na época 100. A curva é ruidosa e permanece aproximadamente em platô na parte final; seleciona-se o mínimo observado.",
+    "cnn": "O menor MSE de validação ocorre na época 99, com pequena reversão na época 100. A validação melhora lentamente, mas o erro permanece muito acima das arquiteturas recorrentes e do benchmark.",
+    "lstm": "O MSE de validação continua diminuindo até a época 100, sem reversão clara. Seleciona-se o menor erro observado; a curva sugere que o limite de diagnóstico pode ter sido curto.",
+    "stacked_lstm": "As curvas de treino e validação convergem e o MSE de validação continua caindo até a época 100. Seleciona-se o melhor ponto observado; o limite de diagnóstico foi atingido.",
+    "bilstm": "A validação melhora até a época 100 e termina no menor MSE observado, sem sinal claro de overfitting. É a melhor época da janela testada, mas o diagnóstico atingiu o limite.",
+    "cnn_lstm": "A curva de validação apresenta redução gradual até a época 100, sem reversão persistente. Seleciona-se o menor MSE observado; seria razoável testar mais épocas em estudo futuro.",
+    "convlstm": "O menor MSE de validação ocorre na época 92. Após esse ponto, a validação se deteriora levemente até a época 100, enquanto o treino continua melhorando; seleciona-se a época anterior à reversão."
+  },
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "loss": "mse",
+  "random_state_base": 42,
+  "proveniencia_execucao": {
+    "arquivo_manifesto": "resultados_execucao/proveniencia_execucao.json",
+    "python": "3.14.4 (kernel metadata)",
+    "tensorflow_versao": "não registrada na execução original",
+    "keras_versao": "não registrada na execução original",
+    "dispositivo": "não registrado na execução original",
+    "data_sha256": "78d2362d1d8e133697e22550c027994fbb6839934cc6d7259008b835ddf33559",
+    "notebook_source_sha256": "b61a7c1435cda0c66f19140fb04602a211e788f40f47c14b4ac8a9ffff19752f",
+    "seed_base": 42,
+    "repeticoes_por_arquitetura": 1
+  }
+}

@@ -1,41 +1,29 @@
-# [Nome da Skill]
+---
+name: skill-name-kebab-case
+description: One sentence explaining what this skill does and when it is useful.
+---
 
-## Descrição
+# Skill title
 
-[Uma frase objetiva descrevendo a tarefa que a Skill padroniza.]
+## When to use
+List the task conditions that should trigger this skill.
 
-## Quando utilizar
+## Inputs and assumptions
+List required files, data, tools, constraints and what must not be assumed.
 
-[Condições em que o agente deve aplicar esta Skill.]
+## Procedure
+1. Ordered, reproducible steps.
+2. Include validation checkpoints and failure handling.
+3. State when to stop and ask for clarification rather than invent.
 
-## Entradas necessárias
+## Project-specific guardrails
+List relevant domain and repository rules.
 
-- [Arquivo, variável, contexto ou parâmetro]
+## Expected outputs
+Specify artifacts, paths, evidence and handoff notes.
 
-## Pré-condições e restrições
-
-- [Requisitos que precisam ser satisfeitos]
-- [Ações proibidas ou cuidados]
-
-## Procedimento
-
-1. [Etapa]
-2. [Etapa]
-3. [Etapa]
-
-## Padrões de qualidade
-
-- [Verificação]
-- [Critério de aceitação]
-
-## Saídas esperadas
-
-- [Artefato ou resultado]
-
-## Tratamento de erros e casos especiais
-
-[Como agir diante de dados ausentes, formatos inesperados, inconsistências ou falta de contexto.]
-
-## Documentação relacionada
-
-- [Caminho para documentos em `contexto_ia/` ou outros materiais.]
+## Quality checklist
+- [ ] Reproducible.
+- [ ] No unsupported claims.
+- [ ] Existing user changes preserved.
+- [ ] Context and plan updated when needed.

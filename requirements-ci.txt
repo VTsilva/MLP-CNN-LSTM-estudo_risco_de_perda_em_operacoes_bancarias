@@ -1,0 +1,2 @@
+# Dependência mínima para validação estrutural do notebook.
+nbformat==5.10.4

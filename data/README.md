@@ -1,10 +1,22 @@
 # Dados — arquitetura Medallion
 
-Os dados serão organizados em camadas, preservando a origem e a rastreabilidade de cada transformação.
+## Princípios
 
-- `raw/`: cópias originais obtidas da fonte, sem tratamento. Não sobrescrever.
-- `bronze/`: ingestão técnica, parsing de datas, tipagem e padronização inicial, preservando os valores de origem.
-- `silver/`: dados validados e tratados, com regras documentadas e seleção das colunas necessárias.
-- `gold/`: conjuntos finais específicos para EDA/modelagem, incluindo features, target e partições quando aplicável.
+A arquitetura organiza a origem e as transformações de forma rastreável. O Raw é imutável. Cada camada derivada deve ser reproduzível e ter schema/regras documentados.
 
-Cada transformação deverá ter origem, regras, data de execução e destino documentados. Não ajustar scalers ou outros transformadores usando validação ou teste.
+- `raw/`: cópia original recebida da fonte, sem transformação.
+- `bronze/`: ingestão e padronização técnica (encoding, tipos, datas e schema), preservando valores originais.
+- `silver/`: dados validados e tratados para análise, com regras explícitas.
+- `gold/`: dataset(s) finais com target/features e estrutura usada nos experimentos.
+
+## Regras de modelagem temporal
+
+- Não embaralhar a série bruta antes da divisão cronológica.
+- Criar janelas sem permitir que a entrada contenha informação posterior ao target.
+- Ajustar transformadores somente no treino.
+- Guardar definições das partições, da janela e do schema por experimento.
+- Não misturar target futuro com features observáveis no mesmo instante de previsão.
+
+## Estado
+
+Somente `raw/` contém o CSV original neste momento. Bronze, Silver e Gold ainda não possuem datasets derivados. Consulte `contexto_ia/estado_atual.md`.

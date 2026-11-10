@@ -1,0 +1,8 @@
+# Normaliza arquivos textuais em LF para reduzir diffs entre Windows/Linux/macOS.
+*.md text eol=lf
+*.ipynb text eol=lf
+*.csv text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf

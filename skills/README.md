@@ -1,27 +1,13 @@
-# Skills para agentes e IAs
+# Skills do projeto
 
-Uma **Skill** é um pacote de instruções reutilizáveis para orientar um agente/IA a executar uma atividade específica de forma consistente. Em geral, descreve quando usar o procedimento, entradas esperadas, etapas, padrões, saídas e critérios de qualidade.
+Skills são instruções operacionais reutilizáveis para agentes. Ler a Skill correspondente à tarefa, sem carregar todas quando não forem necessárias.
 
-Neste projeto, as Skills não serão usadas como um diário de conversas nem como substitutas de `contexto_ia/`. A separação é:
+- `project-context-continuity/SKILL.md`: assumir/atualizar contexto documental com baixo custo de contexto.
+- `time-series-data-audit/SKILL.md`: auditar séries temporais e prevenir vazamento.
+- `academic-notebook-storytelling/SKILL.md`: construir narrativa acadêmica encadeada ao código e resultados.
+- `credit-risk-regulatory-context/SKILL.md`: explicar risco, provisionamento, IFRS 9 e CMN 4.966 com limites corretos.
+- `repository-change-report/SKILL.md`: produzir ZIPs versionados e registrar diffs completos.
 
-- `contexto_ia/`: o que é o projeto, o que sabemos e quais decisões estão vigentes.
-- `planos_ia/`: o que será feito em uma tarefa específica.
-- `skills/`: como executar repetidamente um tipo de tarefa.
+Usar `skills/TEMPLATE_SKILL.md` para criar novos procedimentos. Só promover a Skill quando o procedimento for reutilizável e suficientemente validado.
 
-## Política de criação
-
-Criar uma Skill somente quando houver um procedimento recorrente suficientemente compreendido e validado. Não criar Skills operacionais baseadas em suposições ou processos que ainda não foram testados.
-
-## Estrutura sugerida
-
-```text
-skills/
-├── README.md
-├── TEMPLATE_SKILL.md
-└── nome-da-skill/
-    └── SKILL.md
-```
-
-O formato poderá ser adaptado ao agente/ambiente que for utilizar as Skills. Não se deve presumir que todos os agentes reconheçam automaticamente um arquivo `SKILL.md` local.
-
-Até 07/11/2026, nenhuma Skill operacional foi criada; apenas as diretrizes e o template estão disponíveis.
+- `neural-timeseries-experiment/SKILL.md`: execução e interpretação dos 16 modelos de previsão temporal.

@@ -1,5 +1,14 @@
-# Gold
+# Gold — datasets para experimentos
 
-Camada destinada aos conjuntos finais consumidos pela análise e pelos modelos, com features e target definidos e estrutura consistente para experimentos.
+Propósito: armazenar datasets finais e rastreáveis consumidos pelos modelos. Pode haver saídas distintas para experimentos univariados e multivariados.
 
-Ainda sem dados derivados. A definição final depende da EDA, da janela temporal, do pré-processamento e do desenho experimental.
+Cada artefato Gold deverá documentar:
+- target e features;
+- frequência e intervalo temporal;
+- tamanho da janela e horizonte;
+- regra de criação de amostras;
+- limites de treino/validação/teste;
+- scaler/transformações e origem do ajuste;
+- versão do dado de origem.
+
+Ainda não existe dataset Gold gerado. Não salvar aqui resultados fictícios ou partições ainda não definidas.

@@ -1,9 +1,12 @@
 # Arquivos de contexto e referência
 
-Este diretório guarda materiais originais ou externos que dão suporte ao projeto: enunciado, material de aula, notebooks de referência, artigos e documentações.
+Este diretório reúne documentos originais e materiais de apoio que dão contexto acadêmico e técnico ao estudo.
 
-## Arquivos atuais
+## Arquivos disponíveis
 
-- `trabalho 1 previsao univariada e multivariada passo unico.ipynb`: notebook/roteiro original fornecido pelo professor. Deve ser preservado sem alterações.
+- `trabalho 1 previsao univariada e multivariada passo unico.ipynb` — roteiro/notebook original fornecido pelo professor. Preservar sem alterações. Criar cópia para desenvolvimento.
+- `enunciado_e_requisitos.md` — transcrição consolidada da orientação compartilhada pelo responsável, com nota de consulta ao notebook original.
 
-Ao desenvolver o trabalho, criar uma cópia com nome distinto para edição. Não substituir o original.
+## Diretriz
+
+Não tratar a síntese Markdown como substituta do material oficial. Quando houver dúvida sobre um requisito, revisar o notebook original e registrar a interpretação adotada em `contexto_ia/decisoes.md`.

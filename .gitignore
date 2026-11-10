@@ -1,0 +1,48 @@
+# Python / ambientes virtuais
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Segredos e configurações locais
+.env
+.env.*
+!.env.example
+
+# Logs e arquivos temporários
+*.log
+logs/
+*.tmp
+*.temp
+~$*
+.DS_Store
+Thumbs.db
+
+# Saídas e artefatos de execução (Raw e Gold versionados permanecem fora destas pastas)
+outputs/
+artifacts/
+checkpoints/
+tensorboard/
+wandb/
+*.keras
+*.h5
+*.weights.h5
+*.ckpt
+*.ckpt.index
+*.ckpt.data-*
+events.out.tfevents.*
+
+# Cache de testes e ferramentas
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/

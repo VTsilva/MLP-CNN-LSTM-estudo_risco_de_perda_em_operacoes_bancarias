@@ -1,0 +1,182 @@
+{
+  "project": "MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias",
+  "repository": "https://github.com/VTsilva/MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias",
+  "snapshot_date": "2026-11-09",
+  "source_archive": "MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias(5).zip",
+  "git_metadata_preserved": true,
+  "git_remote_origin": "https://github.com/VTsilva/MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias.git",
+  "git_commit_or_push_performed": false,
+  "notebook": {
+    "path": "victor_silva_trabalho1.ipynb",
+    "cells_total": 87,
+    "code_cells": 35,
+    "markdown_cells": 52,
+    "univariate_architectures": [
+      "MLP 1 camada oculta",
+      "MLP 2 camadas ocultas",
+      "CNN 1D",
+      "LSTM",
+      "Stacked LSTM",
+      "LSTM bidirecional",
+      "CNN-LSTM",
+      "ConvLSTM2D adaptada"
+    ],
+    "multivariate_architectures": [
+      "MLP 1 camada oculta",
+      "MLP 2 camadas ocultas",
+      "MLP multi-cabeça",
+      "CNN 1D",
+      "CNN multi-cabeça",
+      "LSTM",
+      "Stacked LSTM",
+      "LSTM bidirecional"
+    ],
+    "forecast_horizon_steps": 1,
+    "lookback_weeks": 52,
+    "lookback_status": "fixed operational choice; no validation performance sensitivity tested; not claimed optimal",
+    "diagnostic_epochs_default": 100,
+    "neural_training_results_received": true,
+    "static_markdown_discussion_and_conclusion": true,
+    "code_generated_conclusion": false
+  },
+  "validations": {
+    "notebook_nbformat_syntax": "passed locally; all cell IDs present and unique",
+    "centralized_imports": "checked by tools/validate_notebook.py",
+    "result_csv_consistency": "passed locally",
+    "neural_integration_ci": "manual/scheduled workflow configured; not executed in this packaging runtime because TensorFlow is unavailable here",
+    "github_actions_versions": "actions/checkout@v7 and actions/setup-python@v7; contents:read permissions",
+    "static_report_consistency": "passed locally; static report synchronized with notebook discussion/conclusion cells"
+  },
+  "changes_from_input_zip": {
+    "input_archive": "MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias(5).zip",
+    "added": [
+      ".github/workflows/notebook-validation.yml",
+      ".github/workflows/neural-integration.yml",
+      "planos_ia/2026-11-09_fechamento_resultados_reprodutibilidade_ci_e_conclusao.md",
+      "resultados_execucao/discussao_conclusao.md",
+      "resultados_execucao/proveniencia_execucao.json",
+      "tools/capture_execution_provenance.py",
+      "tools/test_neural_integration.py",
+      "tools/validate_results.py"
+    ],
+    "removed": [
+      "resultados_execucao/conclusao_automatica.md"
+    ],
+    "modified": [
+      "AGENTS.md",
+      "PACKAGE_MANIFEST.json",
+      "README.md",
+      "contexto_ia/00_LEIA_PRIMEIRO.md",
+      "contexto_ia/decisoes.md",
+      "contexto_ia/estado_atual.md",
+      "contexto_ia/metodologia_provisoria.md",
+      "contexto_ia/referencias.md",
+      "requirements-ci.txt",
+      "resultados_execucao/README.md",
+      "resultados_execucao/avaliacao_multivariado/configuracao_retreinamento.json",
+      "resultados_execucao/avaliacao_univariado/configuracao_retreinamento.json",
+      "resultados_execucao/diagnostico_multivariado/configuracao.json",
+      "resultados_execucao/diagnostico_univariado/configuracao.json",
+      "resultados_execucao/interpretacao_diagnosticos.md",
+      "skills/academic-notebook-storytelling/SKILL.md",
+      "tools/validate_notebook.py",
+      "victor_silva_trabalho1.ipynb"
+    ],
+    "renamed": []
+  },
+  "notes": [
+    "Os resultados finais foram lidos dos CSVs fornecidos no ZIP executado; nenhuma métrica de rede foi fabricada.",
+    "Seleção de arquiteturas pelo MAE de validação; teste reportado como avaliação final e não usado para escolher o vencedor.",
+    "Lookback 52 foi mantido fixo operacionalmente; não foi conduzida comparação de desempenho com 13, 26 e 104 semanas.",
+    "Uma execução por arquitetura; múltiplas seeds e rolling-origin não foram executados.",
+    "Conclusão e discussão são Markdown estático escrito a partir dos arquivos de resultados; gerador automático removido.",
+    "O kernel do notebook registra Python 3.14.4; versão TensorFlow/Keras e dispositivo não foram capturados na execução original.",
+    "Data CSV SHA-256 e notebook code fingerprint estão em resultados_execucao/proveniencia_execucao.json.",
+    "Git metadata/origin preservados; nenhum commit ou push realizado.",
+    "Os workflows usam actions/checkout@v7 e actions/setup-python@v7, com permissões mínimas contents: read.",
+    "interpretacao_diagnosticos.md foi atualizado com os resultados finais; referências bibliográficas e citações autor-data foram completadas sem campos [preencher].",
+    "A comparação de desempenho entre lookbacks não foi executada; 52 semanas permanece escolha operacional fixa, explicitamente não ótima.",
+    "O relatório discussao_conclusao.md é Markdown estático e é validado contra as duas células finais correspondentes do notebook."
+  ],
+  "release": "V6",
+  "result_validation": {
+    "metrics_rows_per_experiment": 24,
+    "predictions_rows_per_experiment": 22888,
+    "partitions_per_model": {
+      "Treinamento": 1987,
+      "Validacao": 582,
+      "Teste": 292
+    },
+    "missing_metrics": 0,
+    "duplicate_prediction_keys": 0
+  },
+  "final_empirical_summary": {
+    "best_univariate_validation": "BiLSTM",
+    "best_univariate_validation_MAE": 0.0051707935969367,
+    "best_univariate_test_MAE": 0.0023678025526492,
+    "univariate_MAE_improvement_vs_persistence_validation_pct": 53.34260661368735,
+    "univariate_MAE_improvement_vs_persistence_test_pct": 54.36314551989607,
+    "best_multivariate_validation": "LSTM",
+    "best_multivariate_validation_MAE": 0.0170319755878235,
+    "best_multivariate_test_MAE": 0.0122156222586915,
+    "multivariate_MAE_worse_vs_persistence_validation_pct": 53.683872745942594,
+    "multivariate_MAE_worse_vs_persistence_test_pct": 135.4430164711525
+  },
+  "reproducibility": {
+    "registro": "metadados recuperados do notebook e dos arquivos de configuração recebidos; não substitui uma captura ao vivo do ambiente",
+    "execucoes_originais": {
+      "diagnostico_univariado": "2026-11-08T23:15:55.340629",
+      "diagnostico_multivariado": "2026-11-08T23:29:36.801020",
+      "retreinamento_univariado": "2026-11-09T00:39:29.301487",
+      "retreinamento_multivariado": "2026-11-09T00:50:49.569117"
+    },
+    "python": {
+      "versao": "3.14.4",
+      "origem": "metadata.language_info.version e kernelspec do notebook recebido"
+    },
+    "tensorflow_disponivel": true,
+    "tensorflow_versao": null,
+    "keras_versao": null,
+    "observacao_versoes": "A versão exata de TensorFlow e Keras não foi registrada na execução original; não inferir a partir do requirements.txt.",
+    "sistema_operacional": "Windows indicado pelo caminho de execução registrado no output; versão/build não capturados",
+    "dispositivo": null,
+    "observacao_dispositivo": "CPU/GPU não foi registrada nos outputs da execução original.",
+    "seed_base": 42,
+    "politica_seed": "uma execução por arquitetura; seed efetiva derivada da seed base e da posição do modelo, conforme código do notebook",
+    "repeticoes_por_arquitetura": 1,
+    "lookback_semanas": 52,
+    "horizonte_passos": 1,
+    "particoes": {
+      "treinamento": 1987,
+      "validacao": 582,
+      "teste": 292
+    },
+    "features_univariadas": [
+      "Credit"
+    ],
+    "features_multivariadas": [
+      "Credit",
+      "Risk",
+      "Leverage",
+      "Nonfinancial_Leverage"
+    ],
+    "dados": {
+      "arquivo": "data/raw/nfci-data-series-csv.csv",
+      "sha256": "78d2362d1d8e133697e22550c027994fbb6839934cc6d7259008b835ddf33559",
+      "observacoes": 2913,
+      "data_inicial": "1971-01-08",
+      "data_final": "2026-10-30"
+    },
+    "notebook_recebido": {
+      "sha256_arquivo_completo": "a7f5e6caf09ff1c522ef2d09f5bd6375453fd9674e7b2b6e7de0fd33b08caf66",
+      "sha256_fontes_celulas": "b61a7c1435cda0c66f19140fb04602a211e788f40f47c14b4ac8a9ffff19752f",
+      "python_kernel_metadata": "3.14.4"
+    },
+    "limitacoes_reprodutibilidade": [
+      "uma única seed/repetição por arquitetura",
+      "sem avaliação de origem móvel",
+      "versões exatas TensorFlow/Keras não registradas",
+      "dispositivo de execução não registrado"
+    ]
+  }
+}

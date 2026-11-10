@@ -1,7 +1,5 @@
-# Raw
+# Raw — fonte original
 
-Contém os dados originais como recebidos da fonte.
+Arquivo: `nfci-data-series-csv.csv`.
 
-Arquivo atual: `nfci-data-series-csv.csv`.
-
-Não sobrescrever nem alterar o CSV original. Se for necessário corrigir ou transformar algum dado, criar arquivo derivado em `bronze/`.
+Este arquivo foi recebido como base do estudo NFCI. Preserve-o sem alteração. Qualquer parsing, normalização, seleção de variáveis ou transformação deverá gerar um arquivo derivado em `bronze/`, `silver/` ou `gold/`, com regras documentadas.

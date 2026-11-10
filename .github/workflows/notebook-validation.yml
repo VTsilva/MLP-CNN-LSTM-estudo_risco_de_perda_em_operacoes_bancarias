@@ -1,0 +1,27 @@
+name: Notebook and results validation
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+      - name: Install lightweight validation dependencies
+        run: python -m pip install -r requirements-ci.txt
+      - name: Validate notebook structure and syntax
+        run: python tools/validate_notebook.py
+      - name: Validate experiment result CSVs
+        run: python tools/validate_results.py

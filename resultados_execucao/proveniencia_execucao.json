@@ -1,0 +1,63 @@
+{
+  "registro": "metadados recuperados do notebook e dos arquivos de configuração recebidos; não substitui uma captura ao vivo do ambiente",
+  "execucoes_originais": {
+    "diagnostico_univariado": "2026-11-08T23:15:55.340629",
+    "diagnostico_multivariado": "2026-11-08T23:29:36.801020",
+    "retreinamento_univariado": "2026-11-09T00:39:29.301487",
+    "retreinamento_multivariado": "2026-11-09T00:50:49.569117"
+  },
+  "python": {
+    "versao": "3.14.4",
+    "origem": "metadata.language_info.version e kernelspec do notebook recebido"
+  },
+  "tensorflow_disponivel": true,
+  "tensorflow_versao": null,
+  "keras_versao": null,
+  "observacao_versoes": "A versão exata de TensorFlow e Keras não foi registrada na execução original; não inferir a partir do requirements.txt.",
+  "sistema_operacional": "Windows indicado pelo caminho de execução registrado no output; versão/build não capturados",
+  "dispositivo": null,
+  "observacao_dispositivo": "CPU/GPU não foi registrada nos outputs da execução original.",
+  "seed_base": 42,
+  "politica_seed": "uma execução por arquitetura; seed efetiva derivada da seed base e da posição do modelo, conforme código do notebook",
+  "repeticoes_por_arquitetura": 1,
+  "lookback_semanas": 52,
+  "horizonte_passos": 1,
+  "particoes": {
+    "treinamento": 1987,
+    "validacao": 582,
+    "teste": 292
+  },
+  "features_univariadas": [
+    "Credit"
+  ],
+  "features_multivariadas": [
+    "Credit",
+    "Risk",
+    "Leverage",
+    "Nonfinancial_Leverage"
+  ],
+  "dados": {
+    "arquivo": "data/raw/nfci-data-series-csv.csv",
+    "sha256": "78d2362d1d8e133697e22550c027994fbb6839934cc6d7259008b835ddf33559",
+    "observacoes": 2913,
+    "data_inicial": "1971-01-08",
+    "data_final": "2026-10-30"
+  },
+  "notebook_recebido": {
+    "sha256_arquivo_completo": "a7f5e6caf09ff1c522ef2d09f5bd6375453fd9674e7b2b6e7de0fd33b08caf66",
+    "sha256_fontes_celulas": "b61a7c1435cda0c66f19140fb04602a211e788f40f47c14b4ac8a9ffff19752f",
+    "python_kernel_metadata": "3.14.4"
+  },
+  "limitacoes_reprodutibilidade": [
+    "uma única seed/repetição por arquitetura",
+    "sem avaliação de origem móvel",
+    "versões exatas TensorFlow/Keras não registradas",
+    "dispositivo de execução não registrado"
+  ],
+  "notebook_revisado_entregue": {
+    "arquivo": "victor_silva_trabalho1.ipynb",
+    "sha256_arquivo_completo": "3d90b13ca89faf8109e5e597e48c2d5396a90829dea02be25a2b17d2ff050d93",
+    "sha256_fontes_celulas": "2674c72481fcce4f7c4c4cfeda4ce403f06f8123b2068cfd1e09b33c4c0fa34a",
+    "observacao": "Fingerprint do notebook incluído no pacote final V6. Os hashes de notebook_recebido permanecem como identificação do arquivo original que gerou os resultados."
+  }
+}

@@ -1,12 +1,12 @@
-# Imagens e materiais visuais
+# Materiais visuais
 
-Armazenar aqui gráficos, diagramas, fluxogramas, ilustrações e demais materiais visuais criados para o projeto.
+Armazenar gráficos e imagens produzidos especificamente para o projeto. Preferir SVG ou PNG para figuras finais e nomes descritivos com data/etapa.
 
-Sugestão de organização quando houver volume:
+Estrutura sugerida:
 
-- `arquitetura/`
-- `eda/`
-- `modelos/`
-- `comparacoes/`
+- `arquitetura/` — fluxos de dados e diagramas dos experimentos.
+- `eda/` — gráficos de tendência, ciclos, correlações e distribuições.
+- `modelos/` — diagramas de arquiteturas quando forem úteis.
+- `comparacoes/` — comparação de resultados e previsões.
 
-Para cada visualização importante, registrar no notebook ou na documentação a origem dos dados, a finalidade e a interpretação.
+As figuras essenciais ao argumento acadêmico também devem estar incorporadas no notebook final. Evitar imagens sem fonte, rótulos ou legenda.

@@ -1,28 +1,24 @@
 # Planos de execução
 
-Este diretório guarda planos em Markdown para tarefas relevantes do projeto. O plano descreve **o que será feito e em qual sequência**; não substitui a memória consolidada de `contexto_ia/` nem registra resultados como se já tivessem sido executados.
+Registre aqui planos de tarefas relevantes. Um plano descreve objetivo, escopo, arquivos, etapas, critérios de conclusão, riscos e resultado da execução. Ele não substitui a memória consolidada em `contexto_ia/`.
 
-## Convenção de nomes
+## Convenção
 
 `AAAA-MM-DD_nome-curto-da-tarefa.md`
 
-## Estrutura mínima de cada plano
-
-1. Objetivo e resultado esperado.
-2. Contexto e decisões relacionadas.
-3. Escopo e itens fora de escopo.
-4. Arquivos de entrada e saída.
-5. Etapas de execução.
-6. Critérios de qualidade/conclusão.
-7. Riscos, dependências e pontos em aberto.
-8. Status e registro de execução.
-
 ## Status
 
-- Planejado
-- Em andamento
-- Concluído
-- Bloqueado
-- Cancelado
+- `Proposto`: sugestão ainda não autorizada/iniciada.
+- `Planejado`: escopo aprovado, aguardando execução.
+- `Em andamento`: execução iniciada.
+- `Concluído`: critérios de conclusão cumpridos e evidências registradas.
+- `Bloqueado`: existe impedimento documentado.
+- `Cancelado`: tarefa não será executada.
 
-Nenhum plano específico de execução foi registrado como aprovado até 07/11/2026. A estrutura e o template estão disponíveis em `TEMPLATE_PLANO.md`.
+## Planos atuais
+
+- `2026-11-07_consolidacao_identidade_contexto_e_requisitos.md` — concluído.
+- `2026-11-07_criacao_notebook_principal.md` — concluído; notebook principal criado e executado sem erros de célula.
+- `PROPOSTA_01_EDA_E_CARACTERIZACAO_TEMPORAL.md` — em andamento; EDA inicial executada no notebook principal, interpretação e decisões ainda pendentes.
+
+Use `TEMPLATE_PLANO.md` para novos planos.

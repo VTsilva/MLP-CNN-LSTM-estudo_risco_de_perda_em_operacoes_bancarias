@@ -1,0 +1,48 @@
+{
+  "experimento": "multivariado",
+  "data_execucao": "2026-11-09T00:50:49.569117",
+  "target": "Credit",
+  "features": [
+    "Credit",
+    "Risk",
+    "Leverage",
+    "Nonfinancial_Leverage"
+  ],
+  "lookback_semanas": 52,
+  "horizonte_passos": 1,
+  "epocas_selecionadas": {
+    "mlp_1": 90,
+    "mlp_2": 38,
+    "mlp_multihead_1": 100,
+    "cnn": 1,
+    "cnn_multihead": 59,
+    "lstm": 88,
+    "stacked_lstm": 99,
+    "bilstm": 100
+  },
+  "justificativas_epoca": {
+    "mlp_1": "A validação atinge o menor MSE na época 90 e piora de forma mais evidente nas épocas seguintes, enquanto o treino continua melhorando. Há sinal de overfitting; seleciona-se a época 90.",
+    "mlp_2": "O menor MSE de validação ocorre na época 38. Depois disso a validação oscila em torno de um platô e não apresenta ganho sustentado, enquanto o treino continua reduzindo o erro. Seleciona-se o ponto de menor validação.",
+    "mlp_multihead_1": "O MSE de validação continua diminuindo até a época 100, sem reversão clara. Seleciona-se o menor valor observado, mas o limite do diagnóstico foi atingido e não há evidência de plateau.",
+    "cnn": "O menor MSE de validação ocorre já na época 1; depois a validação piora continuamente enquanto o erro de treino cai. O modelo apresenta generalização muito fraca e overfitting desde o início; época 1 é o melhor ponto observado.",
+    "cnn_multihead": "O MSE de validação diminui até a época 59 e depois cresce, enquanto o erro de treino continua caindo. O afastamento entre as curvas indica overfitting; seleciona-se a época 59.",
+    "lstm": "A validação atinge o menor MSE na época 88 e piora levemente depois. Seleciona-se a época 88, anterior à deterioração observada.",
+    "stacked_lstm": "A validação continua melhorando até a época 99 e piora levemente na época 100. Seleciona-se a época 99, melhor ponto observado.",
+    "bilstm": "O MSE de validação continua diminuindo até a época 100, embora exista uma diferença elevada entre treino e validação. Seleciona-se o menor erro observado; o limite do diagnóstico foi atingido."
+  },
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "loss": "mse",
+  "random_state_base": 42,
+  "proveniencia_execucao": {
+    "arquivo_manifesto": "resultados_execucao/proveniencia_execucao.json",
+    "python": "3.14.4 (kernel metadata)",
+    "tensorflow_versao": "não registrada na execução original",
+    "keras_versao": "não registrada na execução original",
+    "dispositivo": "não registrado na execução original",
+    "data_sha256": "78d2362d1d8e133697e22550c027994fbb6839934cc6d7259008b835ddf33559",
+    "notebook_source_sha256": "b61a7c1435cda0c66f19140fb04602a211e788f40f47c14b4ac8a9ffff19752f",
+    "seed_base": 42,
+    "repeticoes_por_arquitetura": 1
+  }
+}

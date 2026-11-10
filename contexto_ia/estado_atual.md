@@ -1,64 +1,46 @@
 # Estado atual do projeto
 
-**Última atualização:** 07/11/2026.
+Data da atualização: 09/11/2026.
 
-## Resumo executivo
+## Entrega acadêmica
+- Notebook principal: `victor_silva_trabalho1.ipynb` na raiz.
+- O notebook contém EDA, preparação, benchmark de persistência, oito arquiteturas univariadas, oito multivariadas, métricas em treino/validação/teste, discussão e conclusão redigidas em Markdown estático.
+- `resultados_execucao/interpretacao_diagnosticos.md` consolida a leitura das curvas, épocas escolhidas e resultados finais; `discussao_conclusao.md` espelha as seções finais estáticas do notebook.
+- A conclusão **não é gerada por código**. A célula de síntese automática e o arquivo `conclusao_automatica.md` foram removidos; o texto final está em Markdown no notebook e em cópia documental estática em `resultados_execucao/discussao_conclusao.md`.
 
-A estrutura de diretórios foi criada. O notebook de referência do professor e o CSV original do NFCI estão armazenados. A base foi inspecionada programaticamente: possui 2.913 observações semanais e sete colunas, sem valores ausentes, datas duplicadas ou intervalos semanais irregulares. O target definido pelo responsável pelo projeto é `Credit`.
+## Resultados efetivamente recebidos
+- Diagnósticos: 8 modelos univariados e 8 multivariados, até 100 épocas por modelo.
+- Retreinamentos: 8 modelos univariados e 8 multivariados, com pesos reinicializados e épocas selecionadas a partir das curvas de validação.
+- Métricas: 24 linhas por abordagem (8 modelos × treino/validação/teste), mais benchmark de persistência no arquivo consolidado.
+- Previsões: 22.888 linhas por abordagem, sem chaves duplicadas; 1.987 alvos de treino, 582 de validação e 292 de teste por modelo.
+- Todos os arquivos de métricas e previsões estão presentes em `resultados_execucao/avaliacao_univariado/` e `avaliacao_multivariado/`.
 
-Ainda não foram executadas a análise exploratória, a preparação das camadas Bronze/Silver/Gold, a modelagem ou a avaliação dos modelos.
+## Conclusão empírica
+- Melhor univariado pela MAE de validação: BiLSTM, MAE 0,005171 e RMSE 0,007501; no teste, MAE 0,002368 e RMSE 0,003123.
+- Benchmark de persistência: MAE 0,011082 na validação e 0,005188 no teste. A BiLSTM reduz a MAE em 53,34% e 54,36%, respectivamente.
+- Melhor multivariado pela MAE de validação: LSTM, MAE 0,017032 e RMSE 0,022459; no teste, MAE 0,012216 e RMSE 0,014274. Não supera persistência em nenhuma das duas partições.
+- A MAE do melhor multivariado é 229,39% maior que a do melhor univariado na validação.
+- Interpretação: nesta amostra, horizonte, features e configurações, a inclusão de Risk, Leverage e Nonfinancial_Leverage não adicionou informação preditiva incremental suficiente sobre o histórico de Credit.
 
-## Arquivos existentes
+## Decisões metodológicas e limitações
+- Lookback de 52 semanas fica **fixo como escolha operacional comum**, não como ótimo validado e não como evidência de sazonalidade anual. Não foi feita comparação de performance com lookbacks 13, 26 e 104.
+- Uma única execução/seed por arquitetura; não houve repetição com várias seeds nem validação de origem móvel.
+- 10/16 diagnósticos tiveram o melhor ponto em 99 ou 100 épocas; esses casos atingiram o limite do diagnóstico e não demonstram convergência completa.
+- Teste é período mais calmo: desvio-padrão do target aproximadamente 0,1113, contra 0,1875 na validação. Comparar erros absolutos entre partições requer essa ressalva.
+- `Credit` é um indicador agregado de condições de crédito dos EUA, não PD, LGD, EAD, default ou provisão. IFRS 9/CMN 4.966 são contexto, não validação regulatória do modelo.
+- A acurácia direcional é complementar; para persistência a previsão é sempre direção zero, fazendo a taxa de acerto refletir principalmente a proporção de observações sem variação.
 
-| Caminho | Conteúdo | Situação |
-|---|---|---|
-| `arquivos_de_contexto/trabalho 1 previsao univariada e multivariada passo unico.ipynb` | Roteiro original do professor | Preservado, não alterado |
-| `data/raw/nfci-data-series-csv.csv` | CSV original com as séries NFCI | Preservado, não alterado |
-| `data/bronze/` | Dados importados/padronizados | Ainda sem dados derivados |
-| `data/silver/` | Dados tratados e validados | Ainda sem dados derivados |
-| `data/gold/` | Dados finais para modelagem | Ainda sem dados derivados |
-| `contexto_ia/` | Documentação inicial | Criada |
-| `planos_ia/` | Diretrizes e modelo de plano | Criados; nenhum plano de execução específico concluído |
-| `skills/` | Diretrizes e modelo de Skill | Criados; nenhuma Skill operacional criada |
-| `IMGs/` | Materiais visuais | Diretório criado, sem artefatos |
+## Reprodutibilidade
+- Kernel notebook: Python 3.14.4 (metadata do notebook).
+- TensorFlow estava disponível, mas a versão efetiva, a versão Keras e o dispositivo não foram capturados na execução original.
+- SHA-256 do CSV e hash das fontes do notebook estão em `resultados_execucao/proveniencia_execucao.json`.
+- Para capturar versões completas em futuras execuções, executar `python tools/capture_execution_provenance.py` depois do notebook.
+- Cada modelo foi executado uma vez, seed base 42 com derivação por posição do modelo.
 
-## Verificação técnica do CSV original
+## CI
+- Job leve: valida estrutura/sintaxe do notebook e consistência dos CSVs de resultados em push/PR/manual.
+- Job neural separado: disparo manual ou agendado, instala TensorFlow e realiza um treino de uma época para cada uma das 16 arquiteturas com dados sintéticos mínimos. Não executa os treinamentos acadêmicos completos.
 
-- Arquivo: `data/raw/nfci-data-series-csv.csv`.
-- Dimensão: **2.913 linhas × 7 colunas** (incluindo a coluna de data).
-- Colunas: `Friday_of_Week`, `NFCI`, `ANFCI`, `Risk`, `Credit`, `Leverage`, `Nonfinancial_Leverage`.
-- Primeira observação: **08/01/1971**.
-- Última observação: **30/10/2026**.
-- Frequência: semanal, com intervalo de sete dias entre observações consecutivas.
-- Datas duplicadas: nenhuma.
-- Valores ausentes: nenhum nas sete colunas.
-- Datas inválidas na interpretação utilizada: nenhuma.
-- Ordenação: cronológica crescente.
-
-**Atenção ao formato de data:** o arquivo utiliza `MM/DD/YYYY`. Por exemplo, `01/08/1971` significa 8 de janeiro de 1971, e não 1º de agosto. Ao importar com pandas, usar explicitamente `format='%m/%d/%Y'` (ou estratégia equivalente claramente validada).
-
-Essas verificações descrevem o arquivo recebido neste projeto; devem ser repetidas no início do pipeline para garantir a integridade do arquivo efetivamente utilizado em cada execução.
-
-## Requisitos já identificados no notebook do professor
-
-O notebook contém 76 células e apresenta um roteiro com:
-
-1. Download/descrição, subamostragem e limpeza.
-2. Análise estatística, gráficos, identificação de tendências/ciclos e divisão temporal 70%/20%/10%.
-3. Previsão univariada de um passo à frente e comparação de modelos.
-4. Previsão multivariada de saída única e um passo à frente.
-5. Discussão comparativa entre abordagens univariada e multivariada.
-6. Etapa opcional de críticas e sugestões.
-
-A especificação dos modelos está resumida em `metodologia_provisoria.md`; o notebook original é a referência integral.
-
-## Próximas atividades ainda não executadas
-
-- Confirmar as variáveis de entrada do experimento multivariado.
-- Fazer EDA e documentar tendências, ciclos, distribuição, correlações e autocorrelação.
-- Definir janela temporal e estratégia de criação das sequências.
-- Definir métricas de avaliação compatíveis com regressão e alinhadas às orientações da disciplina.
-- Implementar o pipeline de dados e produzir as camadas Bronze, Silver e Gold.
-- Desenvolver a cópia de trabalho do notebook.
-- Treinar e comparar os modelos.
-- Consolidar o notebook final e conferir os critérios de entrega.
+## Estado de versionamento
+- O `.git` e o `origin` foram preservados a partir do ZIP recebido.
+- Nenhum commit ou push foi executado durante esta atualização.

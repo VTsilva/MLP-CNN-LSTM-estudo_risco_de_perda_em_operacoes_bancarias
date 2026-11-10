@@ -1,46 +1,28 @@
 # Visão geral do projeto
 
-## Identificação
+## Identidade
+- Repositório: `MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias`
+- GitHub: https://github.com/VTsilva/MLP-CNN-LSTM-estudo_risco_de_perda_em_operacoes_bancarias
+- Título: “Comparação de arquiteturas MLP, CNN e LSTM na previsão de condições de crédito: uma abordagem de séries temporais aplicada ao estudo do risco de perda em operações bancárias.”
+- Disciplina: IAD-012 — Redes neurais recorrentes.
+- Notebook principal: `victor_silva_trabalho1.ipynb` na raiz.
+- Entrega da disciplina: somente o notebook `.ipynb` final, conforme o enunciado.
 
-- **Projeto:** Trabalho 1 — Redes recorrentes.
-- **Disciplina/tema:** previsão de séries temporais com redes neurais.
-- **Data de consolidação deste documento:** 07/11/2026.
-- **Base escolhida:** indicadores do National Financial Conditions Index (NFCI), do Federal Reserve Bank of Chicago.
-- **Variável-alvo escolhida:** `Credit`, correspondente ao Credit Subindex.
+## Objetivo
+Comparar arquiteturas neurais na previsão semanal de um passo à frente da variável `Credit` do dataset NFCI, em experimentos univariados e multivariados.
 
-## Título provisório
+## Motivação e delimitação
+O contexto é provisionamento bancário e perdas de crédito esperadas (IFRS 9 e Resolução CMN 4.966). O dataset, contudo, é um indicador agregado dos Estados Unidos e não contém PD, LGD, EAD, operações, default ou recuperações. O estudo prevê condições de crédito, não estima LGD nem provisões.
 
-**Comparação de arquiteturas MLP, CNN e LSTM na previsão de condições de crédito: uma abordagem de séries temporais aplicada ao estudo do risco de perda em operações bancárias.**
+## Dados
+- Raw: `data/raw/nfci-data-series-csv.csv`.
+- 2.913 registros semanais, 08/01/1971–30/10/2026, seis variáveis numéricas e uma data.
+- Target: `Credit`.
+- Features multivariadas candidatas: `Credit`, `Risk`, `Leverage`, `Nonfinancial_Leverage`.
+- `NFCI` e `ANFCI` fora do primeiro desenho, dada a sobreposição com componentes.
 
-## Motivação
+## Experimentos exigidos
+O roteiro contém 8 modelos univariados e 8 multivariados; ver `contexto_ia/metodologia_provisoria.md` e notebook do professor em `arquivos_de_contexto/`.
 
-O projeto busca estudar condições de crédito em contexto financeiro/bancário, conectando a previsão de séries temporais à discussão sobre risco de crédito e perdas em operações bancárias. O interesse inicial surgiu da LGD (*Loss Given Default*), mas a base pública escolhida contém indicadores de condições financeiras, e não observações diretas de LGD.
-
-Assim, o trabalho atual tem como alvo estatístico a previsão do subíndice `Credit`. A relação com LGD será apresentada como motivação e contexto econômico: condições financeiras e de crédito podem ser relevantes para compreender o ambiente em que perdas e recuperações de crédito ocorrem. Não se deve afirmar que o modelo estima LGD ou que a previsão de `Credit` é equivalente à previsão de LGD.
-
-## Objetivo acadêmico
-
-Familiarizar o aluno com o uso de diferentes arquiteturas baseadas em redes neurais para previsão de séries temporais, comparando experimentos univariados e multivariados de previsão de um único passo à frente.
-
-## Pergunta de pesquisa provisória
-
-Como diferentes arquiteturas de redes neurais se comparam na previsão de um passo à frente do subíndice de condições de crédito (`Credit`), utilizando somente seu histórico (abordagem univariada) ou incorporando outros subíndices do NFCI (abordagem multivariada)?
-
-## Escopo inicial
-
-1. Descrever a fonte, a frequência, o histórico e as variáveis do conjunto.
-2. Validar e explorar a série temporal.
-3. Preparar os dados para previsão de um passo à frente.
-4. Executar os modelos univariados previstos no notebook do professor.
-5. Executar os modelos multivariados previstos no notebook do professor.
-6. Comparar desempenho, curvas de treinamento/validação e resultados no conjunto de teste.
-7. Discutir as diferenças entre previsão univariada e multivariada.
-
-## O que não faz parte do escopo confirmado
-
-- Construir um modelo de LGD individual.
-- Prever diretamente perdas realizadas ou taxas de recuperação.
-- Estabelecer relações causais entre NFCI e LGD.
-- Interpretar o experimento como uma aplicação de produção ou política real de crédito.
-
-Esses temas podem aparecer na contextualização, mas não são resultados que a base selecionada permita afirmar diretamente.
+## Princípio de narrativa
+Toda análise deverá responder: (1) por que foi feita; (2) o que o código calcula; (3) o que os resultados mostram; (4) que decisão ou próximo passo é afetado. Eliminar análises decorativas ou que não contribuam para a pergunta experimental.

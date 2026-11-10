@@ -1,46 +1,38 @@
-# [Nome da tarefa]
+# Plano — [nome curto]
 
-- **Data de criação:** AAAA-MM-DD
-- **Status:** Planejado
-- **Responsável:** [preencher]
+- **Status:** planejado | em andamento | concluído | bloqueado
+- **Criado em:** AAAA-MM-DD
+- **Responsável/agente:** [nome ou agente]
 
-## 1. Objetivo
+## Objetivo
+[Resultado pretendido.]
 
-[Descrever o resultado esperado.]
+## Contexto e decisões relacionadas
+[Links para arquivos em contexto_ia/decisoes.md e metodologia_provisoria.md.]
 
-## 2. Contexto e decisões relacionadas
-
-[Referenciar documentos de `contexto_ia/` e decisões aplicáveis.]
-
-## 3. Escopo
-
+## Escopo
 ### Incluído
-- [item]
+- ...
 
-### Fora do escopo
-- [item]
+### Fora de escopo
+- ...
 
-## 4. Entradas e saídas
+## Entradas e arquivos afetados
+- ...
 
-| Tipo | Caminho | Descrição |
-|---|---|---|
-| Entrada | [caminho] | [descrição] |
-| Saída | [caminho] | [descrição] |
+## Etapas
+1. ...
 
-## 5. Etapas de execução
+## Critérios de aceite
+- ...
 
-1. [etapa]
-2. [etapa]
-3. [etapa]
+## Validações e evidências
+[Comandos executados, resultados reais e limitações.]
 
-## 6. Critérios de conclusão e qualidade
+## Resultado e handoff
+[O que mudou, decisões atualizadas e próximos passos.]
 
-- [critério verificável]
-
-## 7. Riscos e dependências
-
-- [risco/dependência]
-
-## 8. Registro de execução
-
-[Preencher apenas após executar. Registrar alterações, resultados, testes e pendências.]
+## Diff
+- Adicionados:
+- Modificados:
+- Removidos:
